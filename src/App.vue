@@ -1,30 +1,55 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="wrapper">
+    <cc-navbar></cc-navbar>
+    <router-view></router-view>
+  </div>
 </template>
 
 <style lang="scss">
+@import "@/assets/fonts/Gilroy/stylesheet.scss";
+@import "@/assets/fonts/Nekst/stylesheet.scss";
+@import "@/assets/scss/nullstyle.scss";
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  font-family: Nekst;
+  font-weight: 900;
+  font-size: 30px;
 }
 
-nav {
-  padding: 30px;
+.wrapper {
+  display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	min-height: 100vh;
+  position: relative;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+[class*="__container"] {
+  max-width: 1440px;
+  margin: 0 auto;
+	padding: 0 48px;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+
+/*PC*/
+@media (max-width: 1440.98px) {
+	[class*="__container"] {
+		max-width: 1024px;
+	}
+}
+
+/*TABLET*/
+@media (max-width: 1023.98px) {
+	[class*="__container"] {
+		max-width: 768px;
+	}
+}
+
+/*MOBILE*/
+@media (max-width: 767.98px) {
+	[class*="__container"] {
+		max-width: none;
+    padding: 0 20px;
+	}
 }
 </style>

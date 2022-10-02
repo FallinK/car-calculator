@@ -1,14 +1,8 @@
 import { createStore } from 'vuex'
+import { calculatorModule } from '@/store/calculatorModule'
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    calculator: calculatorModule
   }
 })
