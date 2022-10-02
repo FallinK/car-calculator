@@ -5,7 +5,7 @@
 		</h2>
 		<div class="input__body">
 			<input
-				type="text"
+				type="tel"
 				v-if="input.type !== '%'"
 				class="input__text"
 				v-model.lazy="localValue"
@@ -15,7 +15,7 @@
 			<div class="input__text" v-else-if="input.type === '%'" ref="inputText" @click="$refs.percentInput.focus">
 				<span>{{initialFee}}</span><span style="position: relative; top: -3px"> ₽</span>
 				<input
-					type="text"
+					type="tel"
 					class="input__percent"
 					v-model.lazy="localValue"
 					@keydown="preventEnter"
