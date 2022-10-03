@@ -119,7 +119,7 @@ export default {
 	watch: {
 		localValue(newValue) {
 			this.updateInputs(this.formatToNumber(newValue));
-			this.valueSlider = this.formatToNumber(newValue);
+			this.valueSlider = this.formatToNumber(this.localValue);
 		},
 		valueSlider(newValue) {
 			this.localValue = this.formatToString(newValue);
