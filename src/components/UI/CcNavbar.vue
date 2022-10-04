@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/variables.scss";
 .menu {
 	position: fixed;
 	width: 100%;
@@ -24,8 +25,6 @@ export default {
 	font-weight: 400;
 	font-size: 20px;
 	z-index: 100;
-		&__body {
-			}
 		&__list {
 			height: 60px;
 			display: flex;
@@ -34,6 +33,7 @@ export default {
 			gap: 10px;
 		}
 		&__item {
+			color: #fff;
 			transition: 0.3s ease 0s;
 			height: 48px;
 			display: flex;
@@ -46,14 +46,29 @@ export default {
 			&:hover {
 				transform: scaleX(0.95);
 				background: #111111;
-				color: #fff;
 			}
 			&:active {
 				transform: scaleX(1);
 				background: #575757;
-				color: #fff;
 			}
 		}
 }
-
+@media (max-width: $bp-medium) {
+	.menu {
+		&__list {
+			height: 60px;
+		}
+	}
+}
+@media (max-width: $bp-xsmall) {
+	.menu {
+		font-size: 0.66rem;
+		&__list {
+			gap: 1%;
+		}
+		&__item {
+			padding: 0 9.2%;
+		}
+	}
+}
 </style>

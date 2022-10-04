@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/variables.scss";
 	.result {
 		&__title {
 			font-family: 'Gilroy';
@@ -31,7 +32,7 @@ export default {
 			line-height: 90%;
 		}
 }
-@media (max-width: 767.98px) {
+@media (max-width: $bp-medium) {
 	.result {
 		min-width: 167px;
 		&__title {
@@ -43,6 +44,11 @@ export default {
 			font-size: 22px;
 			color: #333E48;
 		}
+	}
+}
+@media (max-width: $bp-xsmall) {
+	.result {
+		min-width: 100%;
 	}
 }
 </style>

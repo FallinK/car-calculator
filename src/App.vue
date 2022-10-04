@@ -9,11 +9,13 @@
 @import "@/assets/fonts/Gilroy/stylesheet.scss";
 @import "@/assets/fonts/Nekst/stylesheet.scss";
 @import "@/assets/scss/nullstyle.scss";
+@import "@/assets/scss/variables.scss";
 
-#app {
+html {
   font-family: Nekst;
   font-weight: 900;
-  font-size: 30px;
+  // font-size: 30px;
+  font-size: 3.3vh;
 }
 
 .wrapper {
@@ -32,24 +34,33 @@
 
 
 /*PC*/
-@media (max-width: 1440.98px) {
+@media (max-width: $bp-large) {
 	[class*="__container"] {
 		max-width: 1024px;
+	}
+	html {
+		font-size: 30px;
 	}
 }
 
 /*TABLET*/
-@media (max-width: 1023.98px) {
+@media (max-width: $bp-medium) {
 	[class*="__container"] {
 		max-width: 768px;
 	}
 }
 
 /*MOBILE*/
-@media (max-width: 767.98px) {
+@media (max-width: $bp-small) {
 	[class*="__container"] {
 		max-width: none;
     padding: 0 20px;
+	}
+}
+
+@media (max-width: $bp-xsmall) {
+	html {
+		font-size: 9vw;
 	}
 }
 </style>

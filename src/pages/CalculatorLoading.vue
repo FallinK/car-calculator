@@ -54,35 +54,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/CalculatorPage.scss";
 .calculator {
-	display: flex;
-	align-items: center;
-	flex: 1 1 auto;
-	margin: 60px 0 0 0;
-	height: 100%;
-	width: 100%;
-		&__container {
-			flex: 100%;
-		}
-		&__title {
-			max-width: 753px;
-			font-size: 54px;
-			line-height: 90%;
-		}
-		&__inputs {
-			display: flex;
-			gap: 32px;
-		}
-		&__results {
-			margin: 44px 0;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
 		&__submit {
 			& img {
 				width: 30px;
-				animation: 1s infinite loading;
+				animation: 1s infinite  loading;
 			}
 			&_disabled {
 				cursor: wait;
@@ -99,31 +77,6 @@ export default {
 	}
 	to {
 		transform: rotate(360deg);
-	}
-}
-@media (max-width: 1439.98px) {
-	.calculator {
-		&__inputs {
-			margin: 12px 0 0 0;
-			flex-direction: column;
-		}
-		&__results {
-			margin: 37px 0;
-			justify-content: flex-start;
-			& .result {
-				flex: 33%;
-			}
-		}
-	}
-}
-@media (max-width: 767.98px) {
-	.calculator {
-		&__title {
-			font-size: 34px;
-		}
-		&__inputs {
-			margin: auto;
-		}
 	}
 }
 </style>

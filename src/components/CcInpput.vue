@@ -13,7 +13,7 @@
 				:disabled=isSending
 			>
 			<div class="input__text" v-else-if="input.type === '%'" ref="inputText" @click="$refs.percentInput.focus">
-				<span>{{initialFee}}</span><span style="position: relative; top: -3px"> ₽</span>
+				<span>{{initialFee}}</span><span class="input__text_percent"> ₽</span>
 				<input
 					type="tel"
 					class="input__percent"
@@ -129,6 +129,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/variables.scss";
 .input {
 	flex: 50%;
 	margin: 32px 0 0 0;
@@ -163,6 +164,10 @@ export default {
 			&_active {
 				outline: 2px solid #F3F3F4;
 				background: none;
+			}
+			&_percent {
+				position: relative;
+				top: -2px;
 			}
 		}
 		&__type {
@@ -238,7 +243,7 @@ export default {
 			}
 		}
 }
-@media (max-width: 767.98px) {
+@media (max-width: $bp-medium) {
 	.input {
 		&__title {
 			color: #333E48;
@@ -254,8 +259,30 @@ export default {
 		}
 		&__percent {
 			font-size: 22px;
-			transform: translate(-10px, -4px);
+			transform: translate(-10px, -3px);
 			padding: 14px;
+		}
+	}
+}
+@media (max-width: $bp-xsmall) {
+	.input {
+		&__title {
+			font-size: 0.45rem;
+		}
+		&__text {
+			font-size: 0.7rem;
+			&_percent {
+				top: -0.1vh;
+			}
+		}
+		&__type {
+			font-size: 0.7rem;
+		}
+		&__percent {
+			font-size: 0.7rem;
+			width: 23vw;
+			transform: translate(-15px, -3px);
+			padding: auto 5px;
 		}
 	}
 }

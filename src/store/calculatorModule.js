@@ -42,13 +42,14 @@ export const calculatorModule = {
 		},
 		async sendData({state, getters}){
 			console.log(state.isSending);
-			const url = "https://eoj3r7f3r4ef6v4.m.pipedream.net";
+			const url = "https://hookb.in/eK160jgYJ6UlaRPldJ1P";
 			const data = JSON.stringify({
-				price: state.inputs[0].value,
-				initial: state.inputs[1].result,
-				months: state.inputs[2].value,
-				monthPay: getters.monthlyPayment.value,
-				leasingAmount: getters.leasingAmount.value
+				car_coast: state.inputs[0].value,
+				initail_payment: state.inputs[1].result,
+				initial_percent: state.inputs[1].value,
+				lease_term: state.inputs[2].value,
+				monthly_payment_from: getters.monthlyPayment.value,
+				total_sum: getters.leasingAmount.value,
 			});
 			try {
 				const response = await axios.post(url, data, {
@@ -63,15 +64,13 @@ export const calculatorModule = {
 				// 		'Content-Type': 'application/json'
 				// 	}
 				// });
-				const json = await response.status;
-				console.log(json);
+				const json = await response;
+				console.log(json.status);
 				state.isSending = await false;
-				console.log(state.isSending);
 			}
 			catch(error) {
 				console.log(error);
 				state.isSending = false;
-				console.log(state.isSending);
 			}
 		}
 	},

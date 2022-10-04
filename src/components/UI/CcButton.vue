@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/variables.scss";
 .button-ui {
 	display: flex;
 	justify-content: center;
@@ -34,15 +35,22 @@ export default {
 		background: #575757;
 	}
 }
-@media (max-width: 1439.98px) {
+@media (max-width: $bp-large) {
 	.button-ui {
 		width: 345px;
 	}
 }
-@media (max-width: 767.98px) {
+@media (max-width: $bp-medium) {
 	.button-ui {
 		width: 280px;
 		font-size: 22px;
+	}
+}
+@media (max-width: $bp-xsmall) {
+	.button-ui{
+		width: 100%;
+		font-size: 0.7rem;
+		padding: 5px;
 	}
 }
 </style>
