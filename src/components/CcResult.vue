@@ -1,7 +1,7 @@
 <template>
 	<div class="result">
 		<h2 class="result__title">{{result.title}}</h2>
-		<div class="result__value">{{result.value}} ₽</div>
+		<div class="result__value">{{value}} ₽</div>
 	</div>
 </template>
 
@@ -11,6 +11,24 @@ export default {
 		result: {
 			type: Object,
 			required: true
+		}
+	},
+	data() {
+		return {
+			value: 0
+		}
+	},
+	methods: {
+		maskText(value) {
+			return(value.toString().replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " "));
+		},
+	},
+	mounted() {
+		this.value = this.maskText(this.result.value);
+	},
+	watch: {
+		result(newResult) {
+			this.value = this.maskText(newResult.value);
 		}
 	}
 }

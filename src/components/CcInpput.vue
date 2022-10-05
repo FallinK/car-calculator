@@ -9,8 +9,10 @@
 				v-if="input.type !== '%'"
 				class="input__text"
 				v-model.lazy="localValue"
+				@input="maskInput"
 				@keydown="preventEnter"
 				:disabled=isSending
+				pattern=""
 			>
 			<div class="input__text" v-else-if="input.type === '%'" ref="inputText" @click="$refs.percentInput.focus">
 				<span>{{initialFee}}</span><span class="input__text_percent"> ₽</span>
@@ -55,6 +57,10 @@ export default {
 		}
 	},
 	methods: {
+		maskInput(event) {
+			let tmpStr = this.formatToNumber(event.target.value);
+			event.target.value = tmpStr.toString().replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ");
+		},
 		...mapMutations({
 			setInputs: 'calculator/setInputs',
 			setResults: 'calculator/setResults'
