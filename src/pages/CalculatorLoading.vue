@@ -60,7 +60,7 @@ export default {
 		&__submit {
 			& img {
 				width: 30px;
-				animation: 1s infinite  loading;
+				animation: 1s infinite loading linear;
 			}
 			&_disabled {
 				cursor: wait;

@@ -1,4 +1,4 @@
-import axios from "axios";
+//import axios from "axios";
 export const calculatorModule = {
 	state: () => ({
 		inputs: [
@@ -52,18 +52,18 @@ export const calculatorModule = {
 				total_sum: getters.leasingAmount.value,
 			});
 			try {
-				const response = await axios.post(url, data, {
-					headers: {
-						'Content-Type': 'application/json'
-					},
-				});
-				// const response = await fetch(url, {
-				// 	method: 'POST',
-				// 	body: JSON.stringify(data),
+				// const response = await axios.post(url, data, {
 				// 	headers: {
 				// 		'Content-Type': 'application/json'
-				// 	}
+				// 	},
 				// });
+				const response = await fetch(url, {
+					method: 'POST',
+					body: JSON.stringify(data),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				});
 				const json = await response;
 				console.log(json.status);
 				state.isSending = await false;
